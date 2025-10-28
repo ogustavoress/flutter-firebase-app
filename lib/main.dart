@@ -13,7 +13,7 @@ class FirebaseApp extends StatelessWidget {
       title: 'Firebase Auth Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const PlaceHolder(),
+      home: const AuthGuard(child: HomeScreen()),
     );
   }
 }
