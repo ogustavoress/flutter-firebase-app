@@ -118,17 +118,32 @@ class LoginScreen extends StatelessWidget {
                                         ? const CircularProgressIndicator()
                                         : Column(
                                             children: [
-                                                //BOTÕES
+                                                SizedBox(
+                                                    width: double.infinity,
+                                                    child: ElevatedButton(
+                                                        style ElevatedButton.styleFrom(
+                                                            backgroundColor: Colors.blue,  //cor do botão
+                                                            foregroundColor: Colors.white, //cor do texto
+                                                            padding: const EdgeInsets.symmetric(vertical: 14),
+                                                            shape: RoundedRectangleBorder(
+                                                                borderRadius: BorderRadius.circular(12),
+                                                            ),
+                                                        ),
+                                                        onPressed: {
+                                                            /*TODO: FUNÇÃO LOGIN*/
+                                                        },
+                                                        child: const Text('Entrar'),
+                                                    ),
+                                                ),
                                             ],
                                         ),
                                     }
-                                ),
                                 ),
                             ),
                         ),
                     ),
                 ),
             ),
-        );
+        ),
     }
 }
