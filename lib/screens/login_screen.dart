@@ -4,6 +4,8 @@ class LoginScreen extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  bool _isObscure = true;
+
     @override
     Widget build(BuildContext context) {
         return Scaffold(
@@ -84,9 +86,18 @@ class LoginScreen extends StatelessWidget {
                                     const SizedBox(height: 16),
                                     TextFormField(
                                         controller: _passwordController,
+                                        obscureText: true,
                                         decoration: const InputDecoration(
                                             labelText: 'Senha',
                                             prefixIcon: Icon(Icons.lock_outline),
+                                            suffixIcon: IconButton(
+                                                icon: Icon(_isObscure ? Icons.visibility_off : Icons.visibility),
+                                                onPressed: () {
+                                                    setState(() {
+                                                        _isObscure = !_isObscure;
+                                                    });
+                                                },
+                                            ),
                                             border: OutlineInputBorder(
                                                 borderRadius: BorderRadius.Radius.circular(12),
                                             ),
