@@ -2,6 +2,7 @@ class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key});
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
     @override
     Widget build(BuildContext context) {
@@ -78,6 +79,26 @@ class LoginScreen extends StatelessWidget {
                                         focusedErrorBorder: OutlineInputBorder(
                                             borderRadius: BorderRadius.circular(12),
                                             borderSide: const BorderSide(color: Colors.redAccent, width: 2),
+                                        ),
+                                    ),
+                                    const SizedBox(height: 16),
+                                    TextFormField(
+                                        controller: _passwordController,
+                                        decoration: const InputDecoration(
+                                            labelText: 'Senha',
+                                            prefixIcon: Icon(Icons.lock_outline),
+                                            border: OutlineInputBorder(
+                                                borderRadius: BorderRadius.Radius.circular(12),
+                                            ),
+                                        ),
+                                        validator: (value) {
+                                            if (value == null || value.isEmpty) {
+                                                ? 'Preencha a senha';
+                                                : null;
+                                            }
+                                        },
+                                        border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(12),
                                         ),
                                     ),
                                 ),
