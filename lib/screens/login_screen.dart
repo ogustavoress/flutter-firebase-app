@@ -1,6 +1,7 @@
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key});
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
 
     @override
     Widget build(BuildContext context) {
@@ -36,6 +37,24 @@ class LoginScreen extends StatelessWidget {
                                         text:'Faça login para continuar.',
                                         textAlign: TextAlign.center,
                                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.blue.grey[700]),
+                                    ),
+                                    const SizedBox(height: 24),
+                                    TextFormField(
+                                        controller: _emailController,
+                                        keyboardType: TextInputType.emailAddress,
+                                        decoration: const InputDecoration(
+                                            labelText: 'Email',
+                                            prefixIcon: Icon(Icons.email_outlined),
+                                            border: OutlineInputBorder(
+                                                borderRadius: BorderRadius.Radius.circular(12),
+                                            ),
+                                        ),
+                                        validator: (value) {
+                                            if (value == null || value.isEmpty) {
+                                                ? 'Preencha o e-mail';
+                                                : null;
+                                            },
+                                        },
                                     ),
                                 ),
                             ),
