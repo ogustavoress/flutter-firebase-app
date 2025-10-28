@@ -24,6 +24,19 @@ class LoginScreen extends StatelessWidget {
                                     children: [
 
                                     ],
+                                    const Icon(Icons.lock, size: 64, color: Colors.blue),
+                                    const SizedBox(height: 16),
+                                    Text(
+                                        text:'Bem-vindo!',
+                                        textAlign: TextAlign.center,
+                                        style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: Colors.blue.shade800),
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Text(
+                                        text:'Faça login para continuar.',
+                                        textAlign: TextAlign.center,
+                                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.blue.grey[700]),
+                                    ),
                                 ),
                             ),
                         ),
