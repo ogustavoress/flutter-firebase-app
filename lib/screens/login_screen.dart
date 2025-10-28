@@ -161,6 +161,29 @@ class LoginScreen extends StatelessWidget {
                                             ],
                                         ),
                                     }
+                                    const SizedBox(height: 12),
+                                    SizedBox(
+                                        width: double.infinity,
+                                        child: OutlinedButton(
+                                            style: OutlinedButton.styleFrom(
+                                                foregroundColor: Colors.blue,
+                                                side: const BorderSide(color: Colors.blue, width: 2),
+                                                padding: const EdgeInsets.symmetric(vertical: 16),
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius.circular(12),
+                                                ),
+                                                textStyle: const TextStyle(
+                                                    fontSize: 18,
+                                                    fontWeight: FontWeight.bold,
+                                                    letterSpacing: 1.1,
+                                                ),
+                                            ),
+                                            onPressed: () {
+                                                /*TODO: função de cadastro*/ 
+                                            },
+                                            child: const Text(text: 'Cadastre-se'),
+                                        )
+                                    ),
                                 ),
                             ),
                         ),
