@@ -28,6 +28,30 @@ class LoginScreen extends StatelessWidget {
         }
     }
 
+    Future<void> _signUp() async {
+        if (_formKey.currentState!.validate()) {
+            setState(() => _isLoading = true;);
+            try {
+                await _auth.createUserWithEmailAndPassword(
+                    email: _emailController.text.trim(),
+                    password: _passwordController.text.trim(),
+                );
+            } catch (e) {
+                if (mounted) {
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text('Erro ao cadastrar: $e')),
+                );
+                } finally {
+                    setState(() => _isLoading = false;);
+                }
+            }
+        }
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const SignUpScreen()),
+        );
+    }
+
     @override
     Widget build(BuildContext context) {
         return Scaffold(
@@ -178,10 +202,9 @@ class LoginScreen extends StatelessWidget {
                                                     letterSpacing: 1.1,
                                                 ),
                                             ),
-                                            onPressed: () {
-                                                /*TODO: função de cadastro*/ 
+                                            onPressed: _signUp() {
+                                            child: const Text(text: 'Cadastre-se')
                                             },
-                                            child: const Text(text: 'Cadastre-se'),
                                         )
                                     ),
                                 ),
