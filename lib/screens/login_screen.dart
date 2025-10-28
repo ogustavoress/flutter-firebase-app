@@ -5,6 +5,7 @@ class LoginScreen extends StatelessWidget {
   final TextEditingController _passwordController = TextEditingController();
 
   bool _isObscure = true;
+  bool _isLoading = false;
 
     @override
     Widget build(BuildContext context) {
@@ -112,6 +113,16 @@ class LoginScreen extends StatelessWidget {
                                             borderRadius: BorderRadius.circular(12),
                                         ),
                                     ),
+                                    const SizedBox(height: 24),
+                                    _isLoading{
+                                        ? const CircularProgressIndicator()
+                                        : Column(
+                                            children: [
+                                                //BOTÕES
+                                            ],
+                                        ),
+                                    }
+                                ),
                                 ),
                             ),
                         ),
