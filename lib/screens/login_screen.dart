@@ -7,6 +7,26 @@ class LoginScreen extends StatelessWidget {
   bool _isObscure = true;
   bool _isLoading = false;
 
+    Future<void> _signIn() async {
+        if (_formKey.currentState!.validate()) {
+            setState(() => _isLoading = true;);
+        }
+        try {
+            await _auth.signInWithEmailAndPassword(
+                email: _emailController.text.trim(),
+                password: _passwordController.text.trim(),
+            );
+        } catch (e) {
+            if (mounted) {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text('Erro ao fazer login: $e')),
+            );
+            } finally {
+                setState(() => _isLoading = false;);
+            }
+        }
+    }
+
     @override
     Widget build(BuildContext context) {
         return Scaffold(
@@ -129,10 +149,12 @@ class LoginScreen extends StatelessWidget {
                                                                 borderRadius: BorderRadius.circular(12),
                                                             ),
                                                         ),
-                                                        onPressed: {
-                                                            /*TODO: FUNÇÃO LOGIN*/
+                                                        onPressed: _signIn{
+                                                            child: const Text(
+                                                                text: 'Entrar',
+                                                                style: TextStyle(fontSize: 16),
+                                                            ),
                                                         },
-                                                        child: const Text('Entrar'),
                                                     ),
                                                 ),
                                             ],
