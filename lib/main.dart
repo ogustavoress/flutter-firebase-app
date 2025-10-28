@@ -10,10 +10,10 @@ class FirebaseApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Firebase Demo',
-      theme: ThemeData(
-        
-      ),
+      title: 'Firebase Auth Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const PlaceHolder(),
     );
   }
 }
