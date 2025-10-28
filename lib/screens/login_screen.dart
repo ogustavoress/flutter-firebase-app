@@ -55,6 +55,30 @@ class LoginScreen extends StatelessWidget {
                                                 : null;
                                             },
                                         },
+
+                                        //borda fora de foco
+                                        enabledBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(12),
+                                            borderSide: const BorderSide(color: Colors.grey, width: 1),
+                                        ),
+
+                                        //borda em foco
+                                        focusedBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(12),
+                                            borderSide: const BorderSide(color: Colors.blue, width: 2),
+                                        ),
+
+                                        //borda de erro fora de foco
+                                        errorBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(12),
+                                            borderSide: const BorderSide(color: Colors.redAccent, width: 2),
+                                        ),
+
+                                        //borda de erro em foco
+                                        focusedErrorBorder: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(12),
+                                            borderSide: const BorderSide(color: Colors.redAccent, width: 2),
+                                        ),
                                     ),
                                 ),
                             ),
